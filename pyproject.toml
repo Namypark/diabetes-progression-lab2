@@ -1,0 +1,14 @@
+[project]
+name = "diabetes-progression-lab2"
+version = "0.1.0"
+description = "Predicting diabetes disease progression with polynomial regression, decision trees, kNN and logistic regression."
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "seaborn>=0.13.2",
+]
