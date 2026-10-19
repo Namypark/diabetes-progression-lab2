@@ -12,7 +12,7 @@ The model is meant as a **screening tool** to help physicians identify patients 
 | 3 | 2 × multivariate polynomial regression (degree > 1) | All / EDA-selected |
 | 3 | 2 × decision tree (different `max_depth`) | All / EDA-selected |
 | 3 | 2 × k-Nearest Neighbours (different `k`) | All / EDA-selected |
-| 3 | 2 × logistic regression (high vs. low progression) | All / EDA-selected |
+| 3 | 2 × logistic regression (above- vs. below-median progression) | All / EDA-selected |
 
 ## Evaluation
 
@@ -53,12 +53,12 @@ Steps 6 – 14 repeated for polynomial, decision tree, kNN and logistic regressi
 |-------|----|-----|------|------------------|
 | BMI only, degree-1 polynomial | 0.20 | 54.9 | 48.8 % | 0.67 |
 | kNN (k = 15), 9 features | 0.41 | 45.2 | 40.6 % | 0.83 |
-| Logistic regression (C = 0.01) | – | – | – | 0.73 (0.87 at threshold 0.4) |
+| Logistic regression (C = 1) | – | – | – | 0.87 at threshold 0.35 (0.73 at 0.5) |
 
-- The BMI–progression relationship is essentially linear; degrees 2–5 add nothing.
+- The BMI–progression relationship is essentially linear; degree 1 was chosen, and the validation top scorer (degree 3) is almost identical on test.
 - Using all features (minus redundant `tc`) roughly doubles explained variance.
 - Degree-3 polynomial (220 parameters) and depth-5 tree overfit badly.
-- Missed high-risk patients look healthy on every measured feature – a limit of the data, not just the model.
+- The logistic threshold (0.35) and model (lowest log-loss) were chosen on validation only; the above-median label is statistical, not clinical.
 
 ## Setup
 
