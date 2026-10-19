@@ -62,11 +62,28 @@ Steps 6 – 14 repeated for polynomial, decision tree, kNN and logistic regressi
 
 ## Setup
 
+Requires Python 3.12 or newer.
+
+### Option 1 – uv
+
 Requires [uv](https://docs.astral.sh/uv/).
 
 ```bash
+git clone https://github.com/Namypark/diabetes-progression-lab2.git
+cd diabetes-progression-lab2
 uv sync
 uv run jupyter lab lab2_diabetes.ipynb
+```
+
+### Option 2 – pip
+
+```bash
+git clone https://github.com/Namypark/diabetes-progression-lab2.git
+cd diabetes-progression-lab2
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+jupyter lab lab2_diabetes.ipynb
 ```
 
 ## Libraries
