@@ -47,6 +47,19 @@ The model is meant as a **screening tool** to help physicians identify patients 
 
 Steps 6 – 14 repeated for polynomial, decision tree, kNN and logistic regression models.
 
+## Key results (test set)
+
+| Model | R² | MAE | MAPE | Screening recall |
+|-------|----|-----|------|------------------|
+| BMI only, degree-1 polynomial | 0.20 | 54.9 | 48.8 % | 0.67 |
+| kNN (k = 15), 9 features | 0.41 | 45.2 | 40.6 % | 0.83 |
+| Logistic regression (C = 0.01) | – | – | – | 0.73 (0.87 at threshold 0.4) |
+
+- The BMI–progression relationship is essentially linear; degrees 2–5 add nothing.
+- Using all features (minus redundant `tc`) roughly doubles explained variance.
+- Degree-3 polynomial (220 parameters) and depth-5 tree overfit badly.
+- Missed high-risk patients look healthy on every measured feature – a limit of the data, not just the model.
+
 ## Setup
 
 Requires [uv](https://docs.astral.sh/uv/).
